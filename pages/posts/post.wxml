@@ -2,6 +2,7 @@
 <view>
   <!-- 图片最好使用aspectFill的mode -->
   <!-- 轮播图部分 -->
+  <!-- vertical="true" 相当于vertical="{{false}}" 以后凡是布尔值，要设置成flase的时候，都要在外面嵌套一个双花括号，因为它是一个字符串，只要有值，就会被认为是true，所以flase也就是一个字符串，如果不想被认为是字符串，则要嵌套一个双花括号-->
   <swiper indicator-dots='true' autoplay='true'>
     <swiper-item>
       <image src='/resources/imgs/banner_1.jpg' mode='aspectFill' />
@@ -14,39 +15,23 @@
     </swiper-item>
   </swiper>
 
-  <!-- 列表部分 -->
-  <view class='post-container'>
-    <view class='post-author-date'>
-
-      <image class='post-author' src='/resources/imgs/avatar_1.jpg' mode='aspectFill' />
-      <text class='post-date'>July 13 2018</text>
+  <!-- 列表部分 block相当于一个括号而已，在括号内的部分会被视为一个整体-->
+  <block wx:for="{{post_list}}" wx:for-item="item">
+    <view class='post-container'>
+      <view class='post-author-date'>
+        <!-- 如果数据是绑定在属性上面的则外面需要双引号，如果是绑定在文本上的，则不需要双引号 -->
+        <image wx:if="{{item.img_condition}}" class='post-author' src='{{item.author_img}}' mode='aspectFill' />
+        <text class='post-date'>{{item.date}}</text>
+      </view>
+      <text class='post-title'>{{item.title}}</text>
+      <image class='post-image' src='{{item.post_img}}' mode='aspectFill' />
+      <text class='post-content'>{{item.content}}</text>
+      <view class='post-like'>
+        <image class='post-like-image' src='../../resources/imgs/ic_collect.png' />
+        <text class='post-like-font'>{{item.collect_num}}</text>
+        <image class='post-like-image' src='../../resources/imgs/ic_comment.png' />
+        <text class='post-like-font'>{{item.view_num}}</text>
+      </view>
     </view>
-    <text class='post-title'>藏在玉林深处的咖啡店</text>
-    <image class='post-image' src='/resources/imgs/bg_1.jpg' mode='aspectFill' />
-    <text class='post-content'>成都的livehouse.让这个悠闲的城市.在寂静的夜晚有了一点点的躁恸与不安分。如果伱喜欢.那么倒了成都.拿着地图寻找的除了景点.还有这些可以用心欣赏音乐的地方。</text>
-    <view class='post-like'>
-      <image class='post-like-image' src='../../resources/imgs/ic_collect.png' />
-      <text class='post-like-font'>15</text>
-      <image class='post-like-image' src='../../resources/imgs/ic_comment.png' />
-      <text class='post-like-font'>20</text>
-    </view>
-  </view>
-
-
-  <view class='post-container'>
-    <view class='post-author-date'>
-      <image class='post-author' src='/resources/imgs/avatar_2.jpg' mode='aspectFill' />
-      <text class='post-date'>July 13 2018</text>
-    </view>
-    <text class='post-title'>小酒馆</text>
-    <image class='post-image' src='/resources/imgs/bg_2.jpg' mode='aspectFill' />
-    <text class='post-content'>玉林路的尽头.成立于1997年.是一个小酒吧、一个艺术沙龙、一个独力唱片厂牌、一个文化公司、一个成都原创摇滚大本营、一个十几年不曾间断的周末摇滚现场。很多国内、外乐队来这里巡演.酒吧的主人.竾是个在摇滚圈里被称作“摇滚教母”的人。没倒周末.这里就会有原创音乐的演出.不外.现在的演出基本集中在永丰路上的新店.玉林路上的老店则成为文艺青年的聚会场所。</text>
-    <view class='post-like'>
-      <image class='post-like-image' src='../../resources/imgs/ic_collect.png' />
-      <text class='post-like-font'>15</text>
-      <image class='post-like-image' src='../../resources/imgs/ic_comment.png' />
-      <text class='post-like-font'>20</text>
-    </view>
-  </view>
-
+  </block>
 </view>
