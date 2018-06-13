@@ -1,0 +1,43 @@
+/* pages/welcome/welcome.wxss */
+
+.container{
+  display: flex;
+  flex-direction: column;
+}
+
+.user-avatar{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+}
+
+.user-name{
+  margin-top: 100rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+/* 文字水平居中是通过设置text-align 
+ border设置的是边框
+*/
+.moto-container{
+  margin-top: 200rpx;
+  border: 1px solid #405f80;
+  width: 200rpx;
+  height: 80rpx;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* 垂直居中是通过设置内部text的line-height的高度与父组件一致 */
+.moto{
+  font-size: 22rpx;
+  font-weight: bold;
+  line-height: 80rpx;
+  color: #405f80;
+}
+
+page{
+  background-color: #b3d4bd;
+  height: 100%;
+}
