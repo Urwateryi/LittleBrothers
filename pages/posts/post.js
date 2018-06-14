@@ -6,5 +6,12 @@ Page({
     this.setData({
       post_list: postsData.post_list
     });
+  },
+
+  onPostItemClick:function(event){
+    var postId=event.currentTarget.dataset.postid;
+    wx.navigateTo({
+      url: 'post-detail/post-detail',
+    })
   }
 })

@@ -12,32 +12,33 @@
 }
 
 .user-name{
-  margin-top: 100rpx;
+  margin-top: 50rpx;
   font-size: 32rpx;
   font-weight: bold;
+  color: #fff;
 }
 
 /* 文字水平居中是通过设置text-align 
  border设置的是边框
 */
 .moto-container{
-  margin-top: 200rpx;
-  border: 1px solid #405f80;
+  margin-top: 300rpx;
+  border: 1px solid #fff;
   width: 200rpx;
-  height: 80rpx;
+  height: 90rpx;
   border-radius: 5px;
   text-align: center;
 }
 
 /* 垂直居中是通过设置内部text的line-height的高度与父组件一致 */
 .moto{
-  font-size: 22rpx;
+  font-size: 23rpx;
   font-weight: bold;
-  line-height: 80rpx;
-  color: #405f80;
+  line-height: 90rpx;
+  color: #fff;
 }
 
 page{
-  background-color: #b3d4bd;
+  background-color: #fec35a;
   height: 100%;
 }

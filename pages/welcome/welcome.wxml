@@ -1,6 +1,6 @@
 <!--pages/welcome/welcome.wxml-->
 <view class='container'>
-  <image class='user-avatar' src="/resources/imgs/ic_avatar.jpg"/>
+  <image class='user-avatar' src="/resources/imgs/avatar_2.jpg" mode='aspectFill'/>
   <text class='user-name'>Hello,Zoey</text>
   <view class='moto-container' bindtap='onClick'>
     <text class='moto'>开启小程序之旅</text>
