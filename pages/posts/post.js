@@ -1,4 +1,4 @@
-//引入数据源
+//引入数据源，require暂时不支持绝对路径
 var postsData=require('../../datas/posts-data.js')
 
 Page({

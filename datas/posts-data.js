@@ -43,6 +43,7 @@ var posts_local_db = [
 ]
 
 /* 这里还可以追加很多个参数，不止post_list一个 */
+// 这里是模块化编程的思想，将脚本与数据进行分离
 module.exports={
   post_list: posts_local_db
 }
