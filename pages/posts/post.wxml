@@ -1,8 +1,7 @@
 <!--pages/posts/post.wxml-->
+<import src="post-item/post-item-template.wxml" />
+
 <view>
-  <!-- 图片最好使用aspectFill的mode -->
-  <!-- 轮播图部分 -->
-  <!-- vertical="true" 相当于vertical="{{false}}" 以后凡是布尔值，要设置成flase的时候，都要在外面嵌套一个双花括号，因为它是一个字符串，只要有值，就会被认为是true，所以flase也就是一个字符串，如果不想被认为是字符串，则要嵌套一个双花括号-->
   <swiper indicator-dots='true' autoplay='true'>
     <swiper-item>
       <image src='/resources/imgs/banner_1.jpg' mode='aspectFill' />
@@ -17,21 +16,6 @@
 
   <!-- 列表部分 block相当于一个括号而已，在括号内的部分会被视为一个整体-->
   <block wx:for="{{post_list}}" wx:for-item="item">
-    <view class='post-container'>
-      <view class='post-author-date'>
-        <!-- 如果数据是绑定在属性上面的则外面需要双引号，如果是绑定在文本上的，则不需要双引号 -->
-        <image wx:if="{{item.img_condition}}" class='post-author' src='{{item.author_img}}' mode='aspectFill' />
-        <text class='post-date'>{{item.date}}</text>
-      </view>
-      <text class='post-title'>{{item.title}}</text>
-      <image class='post-image' src='{{item.post_img}}' mode='aspectFill' />
-      <text class='post-content'>{{item.content}}</text>
-      <view class='post-like'>
-        <image class='post-like-image' src='../../resources/imgs/ic_collect.png' />
-        <text class='post-like-font'>{{item.collect_num}}</text>
-        <image class='post-like-image' src='../../resources/imgs/ic_comment.png' />
-        <text class='post-like-font'>{{item.view_num}}</text>
-      </view>
-    </view>
+    <template is="postItem" data="{{item}}" />
   </block>
 </view>
