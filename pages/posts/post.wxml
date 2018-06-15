@@ -16,7 +16,7 @@
 
   <!-- 列表部分 block相当于一个括号而已，在括号内的部分会被视为一个整体-->
   <block wx:for="{{post_list}}" wx:for-item="item">
-    <view catchtap="onPostItemClick">
+    <view catchtap="onPostItemClick" data-postid='{{item.postId}}'>
       <template is="postItem" data="{{...item}}" />
     </view>
   </block>

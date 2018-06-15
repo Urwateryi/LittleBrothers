@@ -5,18 +5,8 @@
     "pages/posts/post-detail/post-detail"
   ],
   "window": {
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Demo",
-    "navigationBarTextStyle": "black",
-    "backgroundColorTop": "#000000",
-    "backgroundColorBottom": "#fff",
-    "navigationStyle": "custom",
-    "backgroundColor": "#fff"
-  },
-  "networkTimeout": {
-    "request": 10000,
-    "downloadFile": 10000
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fec35a"
   },
   "debug": true
 }
