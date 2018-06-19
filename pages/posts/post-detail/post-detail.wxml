@@ -2,8 +2,8 @@
 <view class='container'>
 
   <view class='head-image'>
-    <image class='head-image' src='{{postData.headImgsSrc}}' mode='aspectFill' />
-     <image class='audio' src='../../../resources/imgs/ic_play.png'/> 
+    <image class='head-image' src='{{isPlayingMusic?postData.music.coverImgUrl:postData.headImgSrc}}' mode='aspectFill' />
+    <image catchtap='onMusicTap' class='audio' src="{{isPlayingMusic?'../../../resources/imgs/ic_pause.png':'../../../resources/imgs/ic_play.png'}}" />
   </view>
   <view class='sub-container'>
 

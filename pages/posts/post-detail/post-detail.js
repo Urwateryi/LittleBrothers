@@ -4,7 +4,7 @@ var postsData = require('../../../datas/posts-data.js')
 Page({
 
   data: {
-
+    isPlayingMusic: false
   },
   onLoad: function(option) {
     wx.showLoading({
@@ -13,7 +13,7 @@ Page({
 
     setTimeout(function() {
       wx.hideLoading()
-    }, 2000)
+    }, 1000)
 
     var postId = option.id;
     var postData = postsData.post_list[postId];
@@ -33,6 +33,20 @@ Page({
       collections[postId] = false;
       wx.setStorageSync('posts_collected', collections);
     }
+
+
+    var that = this;
+    wx.onBackgroundAudioPlay(function() {
+      that.setData({
+        isPlayingMusic: true
+      })
+    });
+
+    wx.onBackgroundAudioPause(function() {
+      that.setData({
+        isPlayingMusic: false
+      })
+    });
   },
   onCollecionTap: function(event) {
     var collections = wx.getStorageSync('posts_collected');
@@ -94,5 +108,26 @@ Page({
         })
       }
     })
+  },
+  onMusicTap: function(event) {
+    var postDataMusic = postsData.post_list[this.data.currentPostId].music;
+    var isPlayingMusic = this.data.isPlayingMusic;
+
+    if (isPlayingMusic) {
+      wx.pauseBackgroundAudio();
+      this.setData({
+        isPlayingMusic: false
+      })
+    } else {
+      wx.playBackgroundAudio({
+        dataUrl: postDataMusic.dataUrl,
+        title: postDataMusic.title,
+        coverImgUrl: postDataMusic.coverImgUrl
+      })
+
+      this.setData({
+        isPlayingMusic: true
+      })
+    }
   }
 })
