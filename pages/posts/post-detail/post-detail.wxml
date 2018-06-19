@@ -18,8 +18,9 @@
 
     <view class='tool'>
       <view class='circle-img'>
-        <image src='../../../resources/imgs/ic_detail_collect.png' />
-        <image class='share-img' src='../../../resources/imgs/ic_detail_share.png' />
+        <image catchtap='onCollecionTap' wx:if='{{collected}}' src='../../../resources/imgs/ic_detail_collect.png' />
+        <image catchtap='onCollecionTap' wx:else src='../../../resources/imgs/ic_detail_uncollect.png' />
+        <image catchtap='onShareTap' class='share-img' src='../../../resources/imgs/ic_detail_share.png' />
       </view>
       <view class='horizon' />
     </view>
