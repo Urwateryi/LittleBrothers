@@ -11,9 +11,10 @@
     <text class='post-content'>{{content}}</text>
 
     <view class='post-like'>
-      <image class='post-like-image' src='../../../resources/imgs/ic_collect.png' />
+    <!-- template中路径最好使用绝对路径，因为每个引用该模版的文件，所处的项目位置不一样 -->
+      <image class='post-like-image' src='/resources/imgs/ic_collect.png' />
       <text class='post-like-font'>{{collection}}</text>
-      <image class='post-like-image' src='../../../resources/imgs/ic_comment.png' />
+      <image class='post-like-image' src='/resources/imgs/ic_comment.png' />
       <text class='post-like-font'>{{reading}}</text>
     </view>
 

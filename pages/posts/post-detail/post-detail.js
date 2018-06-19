@@ -1,6 +1,6 @@
 // pages/posts/post-detail/post-detail.js
 var postsData = require('../../../datas/posts-data.js')
-
+var app=getApp();
 Page({
 
   data: {
@@ -34,20 +34,36 @@ Page({
       wx.setStorageSync('posts_collected', collections);
     }
 
-
-    var that = this;
-    wx.onBackgroundAudioPlay(function() {
+    if (app.globalData.g_isPlayingMusic && app.globalData.g_currentMusicPostId===postId){
       that.setData({
         isPlayingMusic: true
       })
+    }
+
+    this.setMusicMonitor();
+  },
+
+  setMusicMonitor:function(){
+    var that = this;
+    wx.onBackgroundAudioPlay(function () {
+      that.setData({
+        isPlayingMusic: true
+      })
+
+      app.globalData.g_isPlayingMusic=true;
+      app.globalData.g_currentMusicPostId = that.data.currentPostId;
     });
 
-    wx.onBackgroundAudioPause(function() {
+    wx.onBackgroundAudioPause(function () {
       that.setData({
         isPlayingMusic: false
       })
+
+      app.globalData.g_isPlayingMusic = false;
+      app.globalData.g_currentMusicPostId =null;
     });
   },
+
   onCollecionTap: function(event) {
     var collections = wx.getStorageSync('posts_collected');
     if (collections) {
