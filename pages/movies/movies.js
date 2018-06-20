@@ -1,66 +1,69 @@
 // pages/movies/movies.js
+var util=require('../../utils/util.js')
+var app = getApp();
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
+  //RESTFul API 比较轻量级 现在常用的方式 可以返回JSON RESTFul的url的一个好处就是，它可以自描述，从它的url里就能看出它是干什么的
+  //SOAP 企业级的可能还在用 返回的是XML
   data: {
-  
+    inTheaters: {},
+    comingSoonUrl: {},
+    top250: {}
+  },
+
+  onLoad: function(event) {
+    var inThreatersUrl = app.globalData.doubanBase + 'v2/movie/in_theaters?start=0&count=3';
+    var comingSoonUrl = app.globalData.doubanBase + 'v2/movie/coming_soon?start=0&count=3';
+    var top250Url = app.globalData.doubanBase + 'v2/movie/top250?start=0&count=3';
+
+    this.getMovieListData(inThreatersUrl, 'inTheaters');
+    this.getMovieListData(comingSoonUrl, 'comingSoon');
+    this.getMovieListData(top250Url, 'top250');
   },
 
   /**
-   * 生命周期函数--监听页面加载
+   * 网络请求
    */
-  onLoad: function (options) {
-  
+  getMovieListData: function(netUrl, settedKey) {
+    var that = this;
+    wx.request({
+      url: netUrl,
+      success: function(res) {
+        console.log("response: ", res)
+        that.processDoubanData(res.data, settedKey);
+      },
+      fail: function(res) {
+        console.log("error: ", res)
+      }
+    })
   },
+  // inTheaters: {},
+  // comingSoonUrl: {},
+  // top250: {}
+  processDoubanData: function(moviesDouban, settedKey) {
+    var movies = [];
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
+    for (var idx in moviesDouban.subjects) {
+      var subject = moviesDouban.subjects[idx];
+      var title = subject.title;
+      if (title.length >= 6) {
+        title = title.substring(0, 6) + "...";
+      }
+      var temp = {
+        title: title,
+        average: subject.rating.average,
+        coverageUrl: subject.images.large,
+        movieId: subject.id,
+        stars: util.convertToStarsArray(subject.rating.stars)
+      }
+      movies.push(temp);
+    }
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+    //这是什么意思？
+    var readyData = {};
+    readyData[settedKey] = {
+      movies: movies
+    }
+    this.setData(readyData);
   }
 })

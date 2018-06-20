@@ -1,0 +1,29 @@
+@import "../movie/movie-template.wxss";
+
+.movie-list-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.inner-container {
+  margin: 0 auto 20rpx;
+}
+
+.movie-head {
+  padding: 30rpx 20rpx 22rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.more-text {
+  /* float: right; */
+  color: #1f4ba5;
+  align-self: right;
+}
+
+.movies-container {
+  display: flex;
+  flex-direction: row;
+}
