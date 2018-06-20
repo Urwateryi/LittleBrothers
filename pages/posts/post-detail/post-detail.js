@@ -35,7 +35,7 @@ Page({
     }
 
     if (app.globalData.g_isPlayingMusic && app.globalData.g_currentMusicPostId===postId){
-      that.setData({
+      this.setData({
         isPlayingMusic: true
       })
     }
