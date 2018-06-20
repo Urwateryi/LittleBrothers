@@ -2,15 +2,15 @@
 <import src="post-item/post-item-template.wxml" />
 
 <view>
-  <swiper indicator-dots='true' autoplay='true'>
+  <swiper catchtap='onSwiperTap' indicator-dots='true' autoplay='true'>
     <swiper-item>
-      <image src='/resources/imgs/banner_1.jpg' mode='aspectFill' />
+      <image src='/resources/imgs/banner_1.jpg' mode='aspectFill' data-postid='0'/>
     </swiper-item>
     <swiper-item>
-      <image src='/resources/imgs/banner_2.jpg' mode='aspectFill' />
+      <image src='/resources/imgs/banner_2.jpg' mode='aspectFill' data-postid='1'/>
     </swiper-item>
     <swiper-item>
-      <image src='/resources/imgs/banner_3.jpg' mode='aspectFill' />
+      <image src='/resources/imgs/banner_3.jpg' mode='aspectFill' data-postid='2'/>
     </swiper-item>
   </swiper>
 

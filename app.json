@@ -2,11 +2,32 @@
   "pages": [
     "pages/welcome/welcome",
     "pages/posts/post",
-    "pages/posts/post-detail/post-detail"
+    "pages/posts/post-detail/post-detail",
+    "pages/movies/movies"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fec35a"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/posts/post",
+        "text": "文章",
+        "iconPath":"resources/imgs/ic_unbooks.png",
+        "selectedIconPath":"resources/imgs/ic_books.png"
+      },
+      {
+        "pagePath": "pages/movies/movies",
+        "text": "电影",
+          "iconPath": "resources/imgs/ic_unmovies.png",
+          "selectedIconPath": "resources/imgs/ic_movies.png"
+      }
+    ],
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "selectedColor": "#fec35a",
+    "color": "#bfbfbf"
   },
   "debug": true
 }
