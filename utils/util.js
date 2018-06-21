@@ -39,7 +39,24 @@ function convertToStarsArray(stars) {
   return array;
 }
 
+/**
+ * 网络请求
+ */
+function http(netUrl, callBack) {
+  wx.request({
+    url: netUrl,
+    success: function(res) {
+      console.log("http response: ", res)
+      callBack(res.data);
+    },
+    fail: function(res) {
+      console.log("http error: ", res)
+    }
+  })
+}
+
 module.exports = {
   formatTime: formatTime,
-  convertToStarsArray: convertToStarsArray
+  convertToStarsArray: convertToStarsArray,
+  http: http,
 }

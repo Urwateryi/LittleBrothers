@@ -1,5 +1,5 @@
 // pages/movies/movies.js
-var util=require('../../utils/util.js')
+var util = require('../../utils/util.js')
 var app = getApp();
 
 Page({
@@ -16,21 +16,21 @@ Page({
     var comingSoonUrl = app.globalData.doubanBase + 'v2/movie/coming_soon?start=0&count=3';
     var top250Url = app.globalData.doubanBase + 'v2/movie/top250?start=0&count=3';
 
-    this.getMovieListData(inThreatersUrl, 'inTheaters');
-    this.getMovieListData(comingSoonUrl, 'comingSoon');
-    this.getMovieListData(top250Url, 'top250');
+    this.getMovieListData(inThreatersUrl, 'inTheaters', "正在热映");
+    this.getMovieListData(comingSoonUrl, 'comingSoon', "即将上映");
+    this.getMovieListData(top250Url, 'top250', "豆瓣Top250");
   },
 
   /**
    * 网络请求
    */
-  getMovieListData: function(netUrl, settedKey) {
+  getMovieListData: function (netUrl, settedKey, categoryTitle) {
     var that = this;
     wx.request({
       url: netUrl,
       success: function(res) {
         console.log("response: ", res)
-        that.processDoubanData(res.data, settedKey);
+        that.processDoubanData(res.data, settedKey, categoryTitle);
       },
       fail: function(res) {
         console.log("error: ", res)
@@ -40,7 +40,7 @@ Page({
   // inTheaters: {},
   // comingSoonUrl: {},
   // top250: {}
-  processDoubanData: function(moviesDouban, settedKey) {
+  processDoubanData: function (moviesDouban, settedKey, categoryTitle) {
     var movies = [];
 
     for (var idx in moviesDouban.subjects) {
@@ -62,8 +62,16 @@ Page({
     //将数据重新包装一层，每个里面加一层movies
     var readyData = {};
     readyData[settedKey] = {
+      categoryTitle: categoryTitle,
       movies: movies
     }
     this.setData(readyData);
+  },
+
+  onMoreTap: function(event) {
+    var category = event.currentTarget.dataset.category;
+    wx.navigateTo({
+      url: 'more-movie/more-movie?category=' + category,
+    })
   }
 })
