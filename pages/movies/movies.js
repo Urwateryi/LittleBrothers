@@ -59,7 +59,7 @@ Page({
       movies.push(temp);
     }
 
-    //这是什么意思？
+    //将数据重新包装一层，每个里面加一层movies
     var readyData = {};
     readyData[settedKey] = {
       movies: movies

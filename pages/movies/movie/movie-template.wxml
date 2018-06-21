@@ -4,6 +4,9 @@
   <view class='movie-container'>
     <image class='movie-img' src='{{coverageUrl}}'></image>
     <text class='movie-title'>{{title}}</text>
+    <!-- 如果需要在嵌套的模板中传入多个数据，可以将每个数据用逗号隔开。 -->
+    <!-- 使用 is 属性，声明需要的使用的模板，然后将模板所需要的 data 传入 -->
+    <!-- 模板拥有自己的作用域，只能使用data传入的数据 -->
     <template is="startTemplate" data='{{stars:stars,score:average}}'/>
   </view>
 </template>
