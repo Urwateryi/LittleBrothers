@@ -8,7 +8,9 @@ Page({
   data: {
     inTheaters: {},
     comingSoonUrl: {},
-    top250: {}
+    top250: {},
+    containerShow:true,
+    searchPanelShow:false
   },
 
   onLoad: function(event) {
@@ -24,7 +26,7 @@ Page({
   /**
    * 网络请求
    */
-  getMovieListData: function (netUrl, settedKey, categoryTitle) {
+  getMovieListData: function(netUrl, settedKey, categoryTitle) {
     var that = this;
     wx.request({
       url: netUrl,
@@ -37,10 +39,11 @@ Page({
       }
     })
   },
-  // inTheaters: {},
-  // comingSoonUrl: {},
-  // top250: {}
-  processDoubanData: function (moviesDouban, settedKey, categoryTitle) {
+
+  /**
+   * 处理返回回来的数据，进行重新包装
+   */
+  processDoubanData: function(moviesDouban, settedKey, categoryTitle) {
     var movies = [];
 
     for (var idx in moviesDouban.subjects) {
@@ -68,10 +71,33 @@ Page({
     this.setData(readyData);
   },
 
+  /**
+   * 点击更多跳转到更多电影页面
+   */
   onMoreTap: function(event) {
     var category = event.currentTarget.dataset.category;
     wx.navigateTo({
       url: 'more-movie/more-movie?category=' + category,
+    })
+  },
+
+  /**
+   * 当输入框获取到焦点的时候，弹出电影的搜索页面
+   */
+  onBindFocus: function() {
+    this.setData({
+      containerShow: false,
+      searchPanelShow: true
+    })
+  },
+
+  /**
+   * 当输入框失去焦点的时候
+   */
+  onBindBlur: function() {
+    this.setData({
+      containerShow: true,
+      searchPanelShow: false
     })
   }
 })

@@ -1,13 +1,13 @@
 /* margin可以统一写，顺序表示 上，右，下，左*/
+
 .post-container {
   display: flex;
   flex-direction: column;
   margin-top: 20rpx;
-  margin-bottom: 40rpx;
   background-color: #fff;
   border-bottom: 1px solid #ededed;
   border-top: 1px solid #ededed;
-  padding-bottom: 5px;
+  padding: 10rpx 0 15rpx;
 }
 
 .post-author-date {
@@ -15,6 +15,7 @@
 }
 
 /* vertical-align: middle;表示垂直居中 */
+
 .post-author {
   width: 60rpx;
   height: 60rpx;
@@ -30,6 +31,7 @@
 }
 
 /* 什么时候使用px，什么时候使用rpx，建议是：水平方向的间距的话用rpx，垂直方向使用px */
+
 .post-title {
   font-size: 34rpx;
   font-weight: 600;
@@ -47,6 +49,7 @@
 }
 
 /* 前面六行都是用来文本溢出单行/多行省略 参考https://blog.csdn.net/zhuhai__yizhi/article/details/77199190*/
+
 .post-content {
   display: -webkit-box;
   word-break: break-all;

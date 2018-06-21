@@ -1,7 +1,7 @@
 <!--pages/posts/post.wxml-->
 <import src="post-item/post-item-template.wxml" />
 
-<view>
+<view class='container' >
   <swiper catchtap='onSwiperTap' indicator-dots='true' autoplay='true'>
     <swiper-item>
       <image src='/resources/imgs/banner_1.jpg' mode='aspectFill' data-postid='0'/>
