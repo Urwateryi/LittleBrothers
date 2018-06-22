@@ -1,0 +1,94 @@
+强烈推荐可以先看看CSS的一些属性和用法：http://www.w3school.com.cn/css
+
+1、个人开发者，最多只能有40个用户？ 是
+2、那如果我想发布到网上，是不是要企业开发者？ 是
+3、可不可以用插件，组件啥的。
+4、可不可以设置快捷键。可以，快捷键有限
+5、可不可以封装工具类，父类啥的。
+6、小程序与RN的区别。
+7、项目中每个文件后的标识是什么意思。
+8、怎么引用放在类里的资源文件
+9、场景值是怎么用的，可以自定义吗
+10、小程序与AngularJs的区别
+11、在wxss中，.page和page的区别
+12、less sass是啥意思（好像是web开发中的？）
+13、什么时候用rpx，什么时候用px？搞不懂了
+14、数据绑定跟databinding有啥区别，小程序的数据绑定风格借鉴了Agular Js的风格，数据优先的思想。但小程序是单向绑定，Agular Js是双向绑定
+15、控制图片的显隐
+16、什么时候是用class，什么时候用is
+17、require脚本文件的时候，只能用相对路径，不能用绝对路径，是为何，而其他任何地方使用相对绝对都可以
+18、模板只能是对wxml和wxss进行模板话，并不能对脚本文件进行模板话，使用模板的时候，不仅仅要import wxml，还要import wxss文件。所以小程序只是实现了模板化的编程，并没有模块化的编程
+19、在小程序中命名可以使用短横线而不必使用下划线？
+20、使用数据的时候前面加...和不加的区别，不加相当于一个对象，加了相当于把这个对象展开了，平铺了，这样的话在模板文件内就不用每个属性都item.了
+21、Mustache 语法是什么，template中"is 属性可以使用 Mustache 语法，来动态决定具体需要渲染哪个模板："
+22、template其实是不占空间的，会被template内部的内容所取代，写在上面的事件在渲染后是获取不到的，所以可以在Template外面嵌套一层view，把事件写到view上
+23、怎样在事件中传递参数？
+24、自定义属性？在组件中凡是以data-开头的都是自定义属性
+25、在点击事件中传递的参数，这段话怎么理解：    var postId=event.currentTarget.dataset.postId;在组件中取名data-的，到Js中都会被默认去掉
+26、节点dataset？
+27、log会把所有连字符的大写变成小写？比如postId打印的时候，会变成postid?
+Component 构造器构造的组件也可以作为页面使用。
+使用 this.data 可以获取内部数据和属性值，但不要直接修改它们，应使用 setData 修改。
+生命周期函数无法在组件方法中通过 this 访问到。
+属性名应避免以 data 开头，即不要命名成 dataXyz 这样的形式，因为在 WXML 中， data-xyz="" 会被作为节点 dataset 来处理，而不是组件属性。
+在一个组件的定义和使用时，组件的属性名和data字段相互间都不能冲突（尽管它们位于不同的定义段中）。
+
+28、布局中float，z-index是什么意思，text的line-height,letter-spacing,  margin: 0 auto;  z-index:-99;
+29、除了  left: 50%;
+  margin-left: -51rpx;没有其他方式居中了？
+30、视频中少了后来更新的api
+31、分享的api？
+32、组件audio，是使用的音乐播放控制的api，可以自己直接使用api来做音乐播放
+33、数据绑定的优势，跟databinding有什么神似之处。更方便的去做单元测试？
+34、利用事件冒泡机制，target和currentTarget的区别，target指的是当前电机的组件，currentTarget指的是事件捕获的组件，target指的是image，而currentTarget指的是swiper
+35、小程序里的图片名字可以用-？
+36、float是什么意思？画布局的时候 http://www.w3school.com.cn/cssref/pr_class_float.asp
+37、padding里连着写属性的含义：http://www.w3school.com.cn/css/pr_padding.asp
+38、margin: 0 auto 20rpx;是什么意思http://www.w3school.com.cn/css/css_margin.asp 如margin:0 auto，意思就是上下边距为0，左右边距为auto，就是自动适应。
+39、代码片段？
+31、使用fetch，并进行封装？
+32、template传递数据用data，其他的可以用id或者data-id的方式？
+33、怎么使用腾讯云从而使用IDE其他功能？
+34、小程序中通信的几种方式
+35、flutter开发应用？
+36、获取地址信息、
+37、获取个人信息
+38、分享
+39、支付
+40、自定义组件
+41、性能优化
+42、使用工具类
+43、分包
+44、插件的使用
+45、控制音乐的播放进度以及添加动画
+46、-webkit都是干嘛的 -webkit-filter: blur(20px);是模糊处理
+47、整理出一些css的问题，js的问题，wxml的问题
+48、文字一般使用px
+49、position:absoulte可以用来处理叠加的效果？
+50、图片的显示规则：4种缩放，4种裁剪？
+ 
+弹窗
+splash
+缓存
+网络请求
+列表
+图片
+事件监听
+回调
+页面跳转
+广播
+分享
+地图
+支付
+麦当劳式侧面列表
+视频
+音频
+小程序之间的链接
+上拉加载更多
+下拉刷新
+spinner
+傻瓜式创建小程序 怎么弄的
+自定义组件是创建模板？
+模板
+
+为什么播放按钮没有显示出来
