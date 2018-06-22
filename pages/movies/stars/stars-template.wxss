@@ -15,6 +15,7 @@
   padding-left: 3rpx;
   height: 17rpx;
   width: 17rpx;
+  margin-top: 8rpx;
   vertical-align: middle;
 }
 

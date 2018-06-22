@@ -1,4 +1,4 @@
-<template name='startTemplate'>
+<template name='starTemplate'>
   <view class='stars-container'>
     <view class='stars'>
       <block wx:for='{{stars}}' wx:for-item='i'>

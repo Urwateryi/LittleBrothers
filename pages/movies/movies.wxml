@@ -3,8 +3,8 @@
 
 <view class='search'>
   <icon type='search' class='search-img' size='13' color='#405f80' />
-  <input type='text' placeholder='厕所英雄' placeholder-class='placeholder' bindfocus='onBindFocus' bindblur='onBindBlur' />
-  <icon wx:if='{{searchPanelShow}}' type='cancel' class='search-img' size='13' color='#405f80' />
+  <input type='text' placeholder='厕所英雄' placeholder-class='placeholder' bindfocus='onBindFocus' bindconfirm='onBindConfirm' />
+  <icon wx:if='{{searchPanelShow}}' type='cancel' class='search-img' size='13' color='#405f80' catchtap='onCacelTap'/>
 </view>
 
 <view class='container' wx:if='{{containerShow}}'>
@@ -20,5 +20,5 @@
 </view>
 
 <view class='search-panel' wx:if='{{searchPanelShow}}'>
-  <template is='movieGridTemplate' />
+  <template is='movieGridTemplate' data='{{...searchResult}}'/>
 </view>

@@ -1,6 +1,6 @@
 // pages/posts/post-detail/post-detail.js
 var postsData = require('../../../datas/posts-data.js')
-var app=getApp();
+var app = getApp();
 Page({
 
   data: {
@@ -34,7 +34,7 @@ Page({
       wx.setStorageSync('posts_collected', collections);
     }
 
-    if (app.globalData.g_isPlayingMusic && app.globalData.g_currentMusicPostId===postId){
+    if (app.globalData.g_isPlayingMusic && app.globalData.g_currentMusicPostId === postId) {
       this.setData({
         isPlayingMusic: true
       })
@@ -43,25 +43,40 @@ Page({
     this.setMusicMonitor();
   },
 
-  setMusicMonitor:function(){
+  /**
+   * 对音乐播放的监听
+   */
+  setMusicMonitor: function() {
     var that = this;
-    wx.onBackgroundAudioPlay(function () {
+    //播放
+    wx.onBackgroundAudioPlay(function() {
       that.setData({
         isPlayingMusic: true
       })
 
-      app.globalData.g_isPlayingMusic=true;
+      app.globalData.g_isPlayingMusic = true;
       app.globalData.g_currentMusicPostId = that.data.currentPostId;
     });
 
-    wx.onBackgroundAudioPause(function () {
+    //暂停
+    wx.onBackgroundAudioPause(function() {
       that.setData({
         isPlayingMusic: false
       })
 
       app.globalData.g_isPlayingMusic = false;
-      app.globalData.g_currentMusicPostId =null;
+      app.globalData.g_currentMusicPostId = null;
     });
+
+    //停止
+    wx.onBackgroundAudioStop(function() {
+      that.setData({
+        isPlayingMusic: false
+      })
+
+      app.globalData.g_isPlayingMusic = false;
+      app.globalData.g_currentMusicPostId = null;
+    })
   },
 
   onCollecionTap: function(event) {

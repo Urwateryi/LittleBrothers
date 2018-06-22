@@ -6,11 +6,12 @@ Page({
   //RESTFul API 比较轻量级 现在常用的方式 可以返回JSON RESTFul的url的一个好处就是，它可以自描述，从它的url里就能看出它是干什么的
   //SOAP 企业级的可能还在用 返回的是XML
   data: {
-    inTheaters: {},
-    comingSoonUrl: {},
-    top250: {},
-    containerShow:true,
-    searchPanelShow:false
+    inTheaters: {}, //正在热映的数据
+    comingSoonUrl: {}, //即将上映的数据
+    top250: {}, //top250的数据
+    searchResult: {}, //搜索的结果
+    containerShow: true, //是否显示列表
+    searchPanelShow: false //是否显示搜索列表
   },
 
   onLoad: function(event) {
@@ -92,12 +93,35 @@ Page({
   },
 
   /**
-   * 当输入框失去焦点的时候
+   * 点击取消显示
    */
-  onBindBlur: function() {
+  onCacelTap: function() {
     this.setData({
       containerShow: true,
       searchPanelShow: false
+    })
+  },
+
+  /**
+   * 当输入框失去焦点的时候
+   * https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html
+   * 122100版本开始，input组建的bindblur事件在模拟器下也可以相应回车事件，同时，此版本新增了一个bindconfirm事件，专门用来响应键盘的‘完成’按键，建议此处使用‘bindconfirm’
+   */
+  onBindConfirm: function(event) {
+    var searchKey = event.detail.value;
+    console.log(searchKey)
+
+    var searchUrl = app.globalData.doubanBase + 'v2/movie/search?q=' + searchKey;
+    this.getMovieListData(searchUrl, 'searchResult', '');
+  },
+
+  /**
+   * 电影列表页的Item点击事件
+   */
+  onMovieTap: function(event) {
+    var movieId = event.currentTarget.dataset.movieid;
+    wx.navigateTo({
+      url: 'movie-detail/movie-detail?id=' + movieId,
     })
   }
 })

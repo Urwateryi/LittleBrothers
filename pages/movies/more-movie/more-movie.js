@@ -99,7 +99,8 @@ Page({
 
     this.setData({
       movies: {},
-      isEmpty: true
+      isEmpty: true,
+      totalCount: 0
     })
     //在标题栏显示的loadings
     wx.showNavigationBarLoading();
@@ -116,5 +117,15 @@ Page({
     //在标题栏显示的loadings
     wx.showNavigationBarLoading();
     util.http(nextUrl, this.processDoubanData);
+  },
+
+  /**
+   * 电影列表页的Item点击事件
+   */
+  onMovieTap: function(event) {
+    var movieId = event.currentTarget.dataset.movieid;
+    wx.navigateTo({
+      url: '../movie-detail/movie-detail?id=' + movieId,
+    })
   }
 })
