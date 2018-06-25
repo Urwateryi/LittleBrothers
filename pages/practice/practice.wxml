@@ -1,0 +1,6 @@
+<!--pages/practice/practice.wxml-->
+<block wx:for='{{practice_list}}' wx:for-item="item" wx:for-index="idx">
+  <view class='item-container' catchtap='onItemClick'>
+    <text class='item'>{{idx+1+". "+item.content}}</text>
+  </view>
+</block>

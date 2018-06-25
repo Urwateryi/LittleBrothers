@@ -15,7 +15,7 @@ Page({
     })
   },
   onSwiperTap: function(event) {
-    //利用事件冒泡机制，target和currentTarget的区别，target指的是当前电机的组件，currentTarget指的是事件捕获的组件，target指的是image，而currentTarget指的是swiper
+    //利用事件冒泡机制，target和currentTarget的区别，target指的是当前点击的组件，currentTarget指的是事件捕获的组件，target指的是image，而currentTarget指的是swiper
     var postId = event.target.dataset.postid;
     wx.navigateTo({
       url: 'post-detail/post-detail?id=' + postId,

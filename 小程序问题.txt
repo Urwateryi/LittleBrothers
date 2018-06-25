@@ -66,6 +66,7 @@ Component 构造器构造的组件也可以作为页面使用。
 48、文字一般使用px
 49、position:absoulte可以用来处理叠加的效果？
 50、图片的显示规则：4种缩放，4种裁剪？
+51、white-space是什么意思，white-space:nowrap：不换行的意思
  
 弹窗
 splash
