@@ -1,1 +1,11 @@
 /* pages/practice/form/form.wxss */
+
+.btn{
+  width: 600rpx;
+  height: 100rpx;
+  margin: 20rpx;
+}
+
+page{
+  background-color: #f2f2f2;
+}

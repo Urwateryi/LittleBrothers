@@ -1,2 +1,34 @@
 <!--pages/practice/form/form.wxml-->
 
+<button class='btn' type='primary'>
+  选择收获地址
+</button>
+
+<button class='btn' type='primary'>
+  用户设置界面
+</button>
+
+<button class='btn' type='primary'>
+  检查登陆状态
+</button>
+
+<button class='btn' type='primary'>
+  获取用户信息
+</button>
+
+<button class='btn' type='primary'>
+  开始录音
+</button>
+
+<button class='btn' type='primary'>
+  设置分享按钮
+</button>
+
+<button class='btn' type='primary'>
+  取消分享按钮
+</button>
+
+<!-- 打开客服按钮 -->
+<contact-button>
+
+</contact-button>
