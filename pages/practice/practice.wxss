@@ -6,6 +6,12 @@
   background-color: #fff;
   border-bottom: 1rpx solid #ddd;
   display: flex
+
+  
+}
+
+.hover-class{
+  background-color: #eee;
 }
 
 .item {

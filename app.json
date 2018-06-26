@@ -6,7 +6,8 @@
     "pages/movies/movies",
     "pages/movies/more-movie/more-movie",
     "pages/movies/movie-detail/movie-detail",
-    "pages/practice/practice"
+    "pages/practice/practice",
+    "pages/practice/form/form"
   ],
   "window": {
     "backgroundTextStyle": "light",
