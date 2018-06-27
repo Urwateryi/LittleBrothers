@@ -1,6 +1,7 @@
 // pages/movies/more-movie/more-movie.js
 
 var util = require('../../../utils/util.js')
+var Logger = require('../../../utils/Logger.js')
 var app = getApp();
 
 Page({
@@ -95,7 +96,8 @@ Page({
    */
   onPullDownRefresh: function() {
     var refreshUrl = this.data.requestUrl + "?start=0&count=20";
-    console.log("refreshUrl", refreshUrl);
+    // console.log("refreshUrl", refreshUrl);
+    Logger.v("refreshUrl", refreshUrl);
 
     this.setData({
       movies: {},
@@ -112,7 +114,8 @@ Page({
    */
   onReachBottom: function(event) {
     var nextUrl = this.data.requestUrl + "?start=" + this.data.totalCount + "&count=20";
-    console.log("nextUrl", nextUrl);
+    // console.log("nextUrl", nextUrl);
+    Logger.v("nextUrl", nextUrl);
 
     //在标题栏显示的loadings
     wx.showNavigationBarLoading();

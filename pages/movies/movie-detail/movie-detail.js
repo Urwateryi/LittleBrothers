@@ -1,6 +1,7 @@
 // pages/movies/movie-detail/movie-detail.js
 var app = getApp();
 var util = require('../../../utils/util.js')
+var Logger = require('../../../utils/Logger.js')
 
 Page({
   data: {},
@@ -18,7 +19,8 @@ Page({
    * 处理返回结果
    */
   processDoubanData: function(data) {
-    console.log("detail:", data)
+    // console.log("detail:", data)
+    Logger.v("detail", data);
 
     //导演
     var director = {

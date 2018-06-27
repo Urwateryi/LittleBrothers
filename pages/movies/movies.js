@@ -1,5 +1,6 @@
 // pages/movies/movies.js
 var util = require('../../utils/util.js')
+var Logger = require('../../utils/Logger.js')
 var app = getApp();
 
 Page({
@@ -32,11 +33,13 @@ Page({
     wx.request({
       url: netUrl,
       success: function(res) {
-        console.log("response: ", res)
+        // console.log("response: ", res)
+        Logger.v("response", res);
         that.processDoubanData(res.data, settedKey, categoryTitle);
       },
       fail: function(res) {
-        console.log("error: ", res)
+        // console.log("error: ", res)
+        Logger.e("error", res);
       }
     })
   },
@@ -109,7 +112,8 @@ Page({
    */
   onBindConfirm: function(event) {
     var searchKey = event.detail.value;
-    console.log(searchKey)
+    // console.log(searchKey)
+    Logger.v("searchKey", searchKey);
 
     var searchUrl = app.globalData.doubanBase + 'v2/movie/search?q=' + searchKey;
     this.getMovieListData(searchUrl, 'searchResult', '');

@@ -1,7 +1,7 @@
 <template name='starTemplate'>
   <view class='stars-container'>
     <view class='stars'>
-      <block wx:for='{{stars}}' wx:for-item='i'>
+      <block wx:for='{{stars}}' wx:for-item='i' wx:key='index' >
         <image wx:if='{{i==1}}' src='/resources/imgs/ic_star.png' />
         <image wx:elif='{{i==2}}' src='/resources/imgs/ic_halfstar.png' />
         <image wx:elif='{{i==0}}' src='/resources/imgs/ic_unstar.png' />

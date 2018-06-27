@@ -1,3 +1,5 @@
+var Logger = require('/Logger.js')
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -72,11 +74,13 @@ function http(netUrl, callBack) {
   wx.request({
     url: netUrl,
     success: function(res) {
-      console.log("http response: ", res)
+      // console.log("http response: ", res)
+      Logger.v("http response", res);
       callBack(res.data);
     },
     fail: function(res) {
-      console.log("http error: ", res)
+      // console.log("http error: ", res)
+      Logger.e("http error", res);
     }
   })
 }
