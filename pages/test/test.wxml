@@ -1,0 +1,4 @@
+<!--pages/test/test.wxml-->
+<view id='view' data-user-id='111' data-name='dad' catchtap='onViewClick'>
+  <text id='text' data-user-id='222' data-name='son'>show me</text>
+</view>

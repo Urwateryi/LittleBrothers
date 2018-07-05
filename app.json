@@ -7,7 +7,8 @@
     "pages/movies/more-movie/more-movie",
     "pages/movies/movie-detail/movie-detail",
     "pages/practice/practice",
-    "pages/practice/form/form"
+    "pages/practice/form/form",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -27,12 +28,6 @@
         "text": "电影",
         "iconPath": "resources/imgs/ic_unmovies.png",
         "selectedIconPath": "resources/imgs/ic_movies.png"
-      },
-      {
-        "pagePath": "pages/practice/practice",
-        "text": "练习",
-        "iconPath": "resources/imgs/ic_unpractice.png",
-        "selectedIconPath": "resources/imgs/ic_practice.png"
       }
     ],
     "backgroundColor": "#fff",
